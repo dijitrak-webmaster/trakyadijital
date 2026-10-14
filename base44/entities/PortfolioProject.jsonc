@@ -1,0 +1,64 @@
+{
+  "name": "PortfolioProject",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Proje ad\u0131"
+    },
+    "client": {
+      "type": "string",
+      "description": "M\u00fc\u015fteri / i\u015fletme ad\u0131"
+    },
+    "sector": {
+      "type": "string",
+      "description": "Sekt\u00f6r (\u00f6r. Tar\u0131m, Sanayi, Ticaret)"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Proje \u00f6zeti"
+    },
+    "result": {
+      "type": "string",
+      "description": "\u00d6l\u00e7\u00fclebilir sonu\u00e7 (\u00f6r. +%280 sat\u0131\u015f)"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Kapak g\u00f6rseli URL'si (y\u00f6netim panelinden y\u00fcklenir)"
+    },
+    "color": {
+      "type": "string",
+      "default": "bg-mint",
+      "description": "Kart renk \u015feridi"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "ClientMessage",
+  "type": "object",
+  "properties": {
+    "question": {
+      "type": "string",
+      "description": "M\u00fc\u015fteri sorusu"
+    },
+    "answer": {
+      "type": "string",
+      "description": "Dijitrak ekibinin yan\u0131t\u0131 (bo\u015fsa yan\u0131t bekliyor)"
+    },
+    "client_email": {
+      "type": "string",
+      "description": "M\u00fc\u015fteri e-postas\u0131 \u2014 portalda bu e-postaya ait sorular g\u00f6r\u00fcl\u00fcr"
+    }
+  },
+  "required": [
+    "question",
+    "client_email"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.client_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "data.client_email": "{{user.email}}"
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

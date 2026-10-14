@@ -1,0 +1,48 @@
+// Sektöre özel hizmet notları: hangi hizmet hangi sektörde neden öne çıkar
+export const sectorFit = {
+  tarim: {
+    'web-tasarimi': 'Üretici hikayenizi anlatan, kooperatif ve sertifika bilgileriyle güven veren kurumsal vitrin.',
+    'e-ticaret': 'Ayçiçek yağı, bal, peynir gibi ürünler için kargo entegre doğrudan satış mağazası.',
+    'web-uygulama': 'Kooperatif üye portalı, ön sipariş ve ürün izlenebilirlik sistemi.',
+    'seo': '"Trakya ayçiçek yağı" gibi ürün + şehir aramalarında ilk sayfa.',
+    'yerel-seo': 'Edirne, Tekirdağ ve Kırklareli\'ndeki toptancı ve market aramalarında görünürlük.',
+    'reklam-yonetimi': 'Sezon öncesi ön sipariş kampanyalarıyla nakit akışını dengeleyin.',
+    'kurumsal-kimlik': 'Coğrafi işaretli ürününüz için ambalaj, etiket ve marka dili.',
+    'yorum-yonetimi': 'Tüketici güvenini yorumlarla büyütün; satış güvenle başlar.',
+  },
+  sanayi: {
+    'web-tasarimi': 'Teknik kataloglu, çok dilli (TR / EN / DE), ihracata hazır kurumsal site.',
+    'landing-page': 'Fuar, ürün lansmanı ve kapasite duyuruları için dönüşüm odaklı kampanya sayfaları.',
+    'web-uygulama': 'Teklif, stok ve bayi sipariş süreçlerinizi tek panelde toplayan özel yazılım.',
+    'seo': '"CNC işleme Türkiye" gibi global B2B aramalarında görünürlük.',
+    'web-bakim': 'Katalog ve teknik dokümanların her zaman güncel ve erişilebilir kalması.',
+    'kurumsal-kimlik': 'Uluslararası alıcıda güven veren tutarlı sanayi markası kimliği.',
+  },
+  'yerel-ticaret': {
+    'google-isletme': 'Haritada ilk sıralar: "yakınımda" arayan her müşteriye vitrininiz açılsın.',
+    'yerel-seo': 'Keşan\'dan Lüleburgaz\'a, ilçe ilçe arama sayfalarında öne çıkın.',
+    'web-tasarimi': 'Adres, mesai ve WhatsApp\'la tek sayfada tanıtım vitrini.',
+    'e-ticaret': 'Katalog, sipariş ve ödeme içeren hafif mini mağaza.',
+    'reklam-yonetimi': 'Bütçenizi ilçenizdeki potansiyel müşteriye harcayan semt bazlı kampanyalar.',
+    'yorum-yonetimi': 'Yorum toplayıp yanıtlayan düzenli itibar yönetimi.',
+    'sosyal-medya': 'Vitrine uğrayan takipçiyi müşteriye çeviren haftalık içerik akışı.',
+  },
+  turizm: {
+    'web-tasarimi': 'Fotoğraf odaklı, çok dilli (TR / EN / BG) konaklama vitrini.',
+    'web-uygulama': 'Müsaitlik takvimi ve komisyonsuz doğrudan rezervasyon sistemi.',
+    'google-isletme': 'Enez\'den Istranca\'ya, haritada aranan konaklama duraklarında ilk sıra.',
+    'yerel-seo': 'Bölge + konaklama aramalarında öne çıkan sayfalar.',
+    'yorum-yonetimi': 'Puan ortalamasındaki her 0,1 doluluğa yansır; yorumlar bizde.',
+    'sosyal-medya': 'Koy, kahvaltı ve manzara hikayeleriyle sezonu önceden satın.',
+    'reklam-yonetimi': 'Sezon dışı hafta sonu kaçamağı kampanyalarıyla doluluğu yükseltin.',
+  },
+  gida: {
+    'web-tasarimi': 'QR kodlu, fotoğraflı ve iştah açan dijital menü sayfası.',
+    'e-ticaret': 'Komisyonsuz kendi sipariş kanalınız; her tabağın %100\'ü kasada kalır.',
+    'google-isletme': 'Menü fotoğrafları ve güncel saatlerle haritada ön sıra.',
+    'yerel-seo': '"Yakınımda kahvaltı" aramalarında öne çıkan sayfalar.',
+    'sosyal-medya': 'İştah açan görsellerle haftalık içerik akışı.',
+    'kurumsal-kimlik': 'Ambalaj, etiket ve tabelada damak tadınıza uygun marka.',
+    'yorum-yonetimi': 'Olumsuz yorumlar krize dönüşmeden çözülür, puanınız yükselir.',
+  },
+};

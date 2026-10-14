@@ -1,0 +1,128 @@
+{
+  "name": "Lead",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Ad soyad"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "quote",
+        "appointment",
+        "question"
+      ],
+      "default": "question"
+    },
+    "service": {
+      "type": "string"
+    },
+    "sector": {
+      "type": "string"
+    },
+    "estimate": {
+      "type": "string"
+    },
+    "package_summary": {
+      "type": "string",
+      "description": "DijiBot'un sohbete g\u00f6re olu\u015fturdu\u011fu \u00f6zel paket \u00f6zeti"
+    },
+    "package_data": {
+      "type": "string",
+      "description": "DijiBot'un kurdu\u011fu paketin JSON verisi \u2014 teklif sayfas\u0131 ve paket PDF'i \u00fcretmek i\u00e7in"
+    },
+    "quote_no": {
+      "type": "string",
+      "description": "Kal\u0131c\u0131 teklif numaras\u0131 (DJT-PKG-\u2026) \u2014 paket PDF'inde ve CRM aramas\u0131nda kullan\u0131l\u0131r"
+    },
+    "quote_token": {
+      "type": "string",
+      "description": "Teklif sayfas\u0131 payla\u015f\u0131m anahtar\u0131 \u2014 /teklif/:leadId?token= linkiyle a\u00e7\u0131l\u0131r"
+    },
+    "quote_open_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Teklif sayfas\u0131n\u0131n m\u00fc\u015fteri taraf\u0131ndan a\u00e7\u0131lma say\u0131s\u0131"
+    },
+    "quote_last_open_at": {
+      "type": "string",
+      "description": "Teklifin son a\u00e7\u0131ld\u0131\u011f\u0131 zaman (ISO)"
+    },
+    "session_id": {
+      "type": "string",
+      "description": "Web sohbeti oturum kodu (DJB-XXXXXX) \u2014 WhatsApp DijiBot'u ziyaret\u00e7iyi bu kodla tan\u0131r"
+    },
+    "ip_address": {
+      "type": "string",
+      "description": "Web ziyaret\u00e7isinin IP adresi"
+    },
+    "device_info": {
+      "type": "string",
+      "description": "Cihaz/taray\u0131c\u0131 bilgisi"
+    },
+    "appointment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "appointment_time": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "conversation": {
+      "type": "string"
+    },
+    "referral": {
+      "type": "string",
+      "description": "Tavsiye kayna\u011f\u0131 (?ref= parametresi)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "won",
+        "lost"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "ProjectFile",
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "description": "Ba\u011fl\u0131 m\u00fc\u015fteri projesinin kimli\u011fi"
+    },
+    "client_email": {
+      "type": "string",
+      "description": "Dosyay\u0131 portalda g\u00f6recek m\u00fc\u015fteri e-postas\u0131"
+    },
+    "title": {
+      "type": "string",
+      "description": "Dosya ba\u015fl\u0131\u011f\u0131 (\u00f6rn. Ana sayfa tasar\u0131m\u0131 v2)"
+    },
+    "file_uri": {
+      "type": "string",
+      "description": "\u00d6zel depodaki dosya adresi (UploadPrivateFile sonucu)"
+    },
+    "note": {
+      "type": "string",
+      "description": "K\u0131sa a\u00e7\u0131klama"
+    }
+  },
+  "required": [
+    "project_id",
+    "client_email",
+    "title",
+    "file_uri"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.client_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

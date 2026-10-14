@@ -1,0 +1,115 @@
+{
+  "name": "SiteSettings",
+  "type": "object",
+  "properties": {
+    "market_enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Market mod\u00fcl\u00fc a\u00e7\u0131k/kapal\u0131 \u2014 kapal\u0131yken anasayfa teaser'\u0131 ve /market sayfas\u0131 g\u00f6r\u00fcnmez"
+    },
+    "show_hero": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Hero"
+    },
+    "show_marquee": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Kayan \u015ferit"
+    },
+    "show_stats": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: \u0130statistikler"
+    },
+    "show_services": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Hizmetler"
+    },
+    "show_why": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Neden Dijitrak"
+    },
+    "show_sectors": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Sekt\u00f6rler"
+    },
+    "show_process": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: S\u00fcre\u00e7"
+    },
+    "show_packages": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Paket kar\u015f\u0131la\u015ft\u0131rma"
+    },
+    "show_simulator": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Sim\u00fclat\u00f6r CTA"
+    },
+    "show_tools": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Ara\u00e7lar"
+    },
+    "show_calculator": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Hesaplay\u0131c\u0131 + vaka"
+    },
+    "show_portfolio": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Portfolyo"
+    },
+    "show_testimonials": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Referanslar"
+    },
+    "show_instagram": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Instagram ak\u0131\u015f\u0131"
+    },
+    "show_faq": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: SSS"
+    },
+    "show_explore": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: Ke\u015ffet ba\u011flant\u0131lar\u0131"
+    },
+    "show_cta": {
+      "type": "boolean",
+      "default": true,
+      "description": "Ana sayfa: CTA banner"
+    }
+  },
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  },
+  "required": []
+}

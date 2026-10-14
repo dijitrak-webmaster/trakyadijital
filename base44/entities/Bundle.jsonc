@@ -1,0 +1,66 @@
+{
+  "name": "Bundle",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Bundle paket ad\u0131"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Adres anahtar\u0131"
+    },
+    "description": {
+      "type": "string",
+      "description": "K\u0131sa a\u00e7\u0131klama"
+    },
+    "item_ids": {
+      "type": "string",
+      "description": "Pakete dahil market \u00fcr\u00fcnlerinin kimlikleri (virg\u00fclle ayr\u0131lm\u0131\u015f)"
+    },
+    "price": {
+      "type": "number",
+      "description": "\u0130ndirimli paket fiyat\u0131 (TL)"
+    },
+    "badge": {
+      "type": "string",
+      "description": "Rozet (\u00f6r. En Avantajl\u0131)"
+    },
+    "color": {
+      "type": "string",
+      "default": "bg-coral",
+      "description": "Kart renk \u015feridi"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft",
+      "description": "Yaln\u0131zca yay\u0131nda olanlar market vitrininde g\u00f6r\u00fcn\u00fcr"
+    }
+  },
+  "required": [
+    "title",
+    "price"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

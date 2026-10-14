@@ -1,0 +1,58 @@
+{
+  "name": "DiscountCode",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "\u0130ndirim kodu (\u00f6r. HOSGELDIN10)"
+    },
+    "discount_type": {
+      "type": "string",
+      "enum": [
+        "percent",
+        "fixed"
+      ],
+      "default": "percent",
+      "description": "\u0130ndirim tipi: y\u00fczde veya sabit TL"
+    },
+    "discount_value": {
+      "type": "number",
+      "description": "\u0130ndirim de\u011feri (% veya \u20ba)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "passive"
+      ],
+      "default": "active",
+      "description": "Pasif kodlar sepette ge\u00e7ersiz say\u0131l\u0131r"
+    },
+    "note": {
+      "type": "string",
+      "description": "Y\u00f6netici notu"
+    }
+  },
+  "required": [
+    "code",
+    "discount_value"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

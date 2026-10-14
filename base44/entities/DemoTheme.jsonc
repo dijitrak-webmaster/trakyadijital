@@ -1,0 +1,40 @@
+{
+  "name": "DemoTheme",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Demo adresi anahtar\u0131 \u2014 teman\u0131n \u00f6nizlemesi /demo/<anahtar> adresinde a\u00e7\u0131l\u0131r"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Demo site marka ad\u0131"
+    },
+    "data": {
+      "type": "string",
+      "description": "Tema i\u00e7eri\u011fi JSON \u2014 palet, men\u00fc, hero, \u00f6zellikler, hakk\u0131nda, yorum, ileti\u015fim"
+    }
+  },
+  "required": [
+    "key",
+    "brand"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

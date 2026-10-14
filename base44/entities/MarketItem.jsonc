@@ -1,0 +1,102 @@
+{
+  "name": "MarketItem",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "\u00dcr\u00fcn ad\u0131"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Detay sayfas\u0131 adresi (\u00f6rn. nfc-isletme-karti)"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "tema",
+        "paket",
+        "nfckart",
+        "eklenti"
+      ],
+      "description": "Kategori (tema, paket, NFC kart, eklenti)"
+    },
+    "description": {
+      "type": "string",
+      "description": "K\u0131sa a\u00e7\u0131klama"
+    },
+    "features": {
+      "type": "string",
+      "description": "Virg\u00fclle ayr\u0131lm\u0131\u015f \u00f6zellikler"
+    },
+    "price": {
+      "type": "number",
+      "description": "Fiyat (TL) \u2014 ayl\u0131k \u00fcr\u00fcnlerde ayl\u0131k tutar"
+    },
+    "billing": {
+      "type": "string",
+      "enum": [
+        "one_time",
+        "monthly"
+      ],
+      "default": "one_time",
+      "description": "\u00d6deme tipi: tek seferlik veya ayl\u0131k abonelik"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Kapak g\u00f6rseli"
+    },
+    "preview_url": {
+      "type": "string",
+      "description": "Canl\u0131 \u00f6nizleme adresi (\u00f6rn. /demo/harvest veya https://...) \u2014 masa\u00fcst\u00fc/tablet/mobil \u00f6nizlemede a\u00e7\u0131l\u0131r"
+    },
+    "badge": {
+      "type": "string",
+      "description": "Vitrin rozeti (\u00f6rn. Yeni, Pop\u00fcler)"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Ortalama puan 0-5 (bo\u015fsa y\u0131ld\u0131z g\u00f6sterilmez)"
+    },
+    "rating_count": {
+      "type": "number",
+      "description": "De\u011ferlendirme say\u0131s\u0131"
+    },
+    "color": {
+      "type": "string",
+      "default": "bg-mint",
+      "description": "Kart renk \u015feridi"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft",
+      "description": "Yaln\u0131zca yay\u0131nda olanlar markette g\u00f6r\u00fcn\u00fcr"
+    }
+  },
+  "required": [
+    "title",
+    "category",
+    "price"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "Testimonial",
+  "type": "object",
+  "properties": {
+    "author": {
+      "type": "string",
+      "description": "Ad soyad (\u00f6r. H\u00fcseyin K.)"
+    },
+    "role": {
+      "type": "string",
+      "description": "Unvan / i\u015fletme (\u00f6r. Ay\u00e7i\u00e7ek \u00dcreticisi \u00b7 Edirne)"
+    },
+    "text": {
+      "type": "string",
+      "description": "Yorum metni"
+    },
+    "project": {
+      "type": "string",
+      "description": "Proje etiketi (\u00f6r. E-Ticaret + Yerel SEO)"
+    },
+    "color": {
+      "type": "string",
+      "default": "bg-mint",
+      "description": "Kart renk \u015feridi"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft"
+    }
+  },
+  "required": [
+    "author",
+    "text"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

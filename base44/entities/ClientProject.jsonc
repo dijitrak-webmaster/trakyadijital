@@ -1,0 +1,90 @@
+{
+  "name": "ClientProject",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Proje ad\u0131"
+    },
+    "client_email": {
+      "type": "string",
+      "description": "M\u00fc\u015fterinin giri\u015f e-postas\u0131 \u2014 projeyi portalda bu e-posta g\u00f6r\u00fcr"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "in_progress",
+        "review",
+        "launched"
+      ],
+      "default": "planned"
+    },
+    "progress": {
+      "type": "number",
+      "default": 0,
+      "description": "Tamamlanma y\u00fczdesi (0-100)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Kapsam ve teslimatlar"
+    },
+    "report": {
+      "type": "string",
+      "description": "M\u00fc\u015fteriye g\u00f6r\u00fcnen son durum raporu"
+    },
+    "github_url": {
+      "type": "string",
+      "description": "GitHub deposu ba\u011flant\u0131s\u0131"
+    },
+    "live_url": {
+      "type": "string",
+      "description": "Canl\u0131 site adresi"
+    },
+    "staging_url": {
+      "type": "string",
+      "description": "Demo / staging adresi"
+    },
+    "theme_id": {
+      "type": "string",
+      "description": "M\u00fc\u015fterinin portalda se\u00e7ti\u011fi tema (ThemeTemplate id)"
+    },
+    "theme_name": {
+      "type": "string",
+      "description": "Se\u00e7ilen teman\u0131n ad\u0131 (portaldan g\u00f6r\u00fcnt\u00fclenir)"
+    }
+  },
+  "required": [
+    "title",
+    "client_email"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.client_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

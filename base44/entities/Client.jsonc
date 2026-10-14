@@ -1,0 +1,56 @@
+{
+  "name": "Client",
+  "type": "object",
+  "properties": {
+    "business_name": {
+      "type": "string",
+      "description": "\u0130\u015fletme ad\u0131"
+    },
+    "contact_name": {
+      "type": "string",
+      "description": "Yetkili ki\u015fi ad\u0131 soyad\u0131"
+    },
+    "email": {
+      "type": "string",
+      "description": "Portal giri\u015fi e-postas\u0131 (ClientProject.client_email ile e\u015fle\u015fir)"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Telefon numaras\u0131"
+    },
+    "sector": {
+      "type": "string",
+      "description": "Sekt\u00f6r"
+    },
+    "note": {
+      "type": "string",
+      "description": "Y\u00f6netici notu"
+    }
+  },
+  "required": [
+    "business_name",
+    "email"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

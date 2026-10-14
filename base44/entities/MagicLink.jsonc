@@ -1,0 +1,54 @@
+{
+  "name": "MagicLink",
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string",
+      "description": "Tek kullan\u0131ml\u0131k giri\u015f anahtar\u0131 \u2014 linke g\u00f6m\u00fcl\u00fcr"
+    },
+    "email": {
+      "type": "string",
+      "description": "Davetlinin e-postas\u0131"
+    },
+    "password": {
+      "type": "string",
+      "description": "Sistemce \u00fcretilen \u015fifre \u2014 yaln\u0131zca ba\u011flant\u0131 kar\u015f\u0131l\u0131\u011f\u0131nda iletilir, panelde g\u00f6sterilmez"
+    },
+    "used": {
+      "type": "boolean",
+      "default": false,
+      "description": "Ba\u011flant\u0131 kullan\u0131ld\u0131 m\u0131"
+    },
+    "expires_at": {
+      "type": "string",
+      "description": "Ge\u00e7erlilik biti\u015fi (ISO)"
+    }
+  },
+  "required": [
+    "token",
+    "email",
+    "password"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

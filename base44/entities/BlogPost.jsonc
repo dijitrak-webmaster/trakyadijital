@@ -1,0 +1,81 @@
+{
+  "name": "BlogPost",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Yaz\u0131 ba\u015fl\u0131\u011f\u0131"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL adresi (\u00f6r. google-isletme-rehberi)"
+    },
+    "category": {
+      "type": "string",
+      "description": "Kategori (\u00f6r. Rehber, Duyuru)"
+    },
+    "author": {
+      "type": "string",
+      "description": "Yazar ad\u0131 (bo\u015fsa Dijitrak g\u00f6sterilir)"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Listede g\u00f6r\u00fcnen k\u0131sa \u00f6zet"
+    },
+    "content": {
+      "type": "string",
+      "description": "Yaz\u0131 g\u00f6vdesi (paragraflar bo\u015f sat\u0131rla, ba\u015fl\u0131klar '## ' ile ayr\u0131l\u0131r)"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Kapak g\u00f6rseli URL'si (y\u00f6netim panelinden y\u00fcklenir)"
+    },
+    "meta_title": {
+      "type": "string",
+      "description": "SEO ba\u015fl\u0131\u011f\u0131 (bo\u015fsa yaz\u0131 ba\u015fl\u0131\u011f\u0131 kullan\u0131l\u0131r)"
+    },
+    "meta_description": {
+      "type": "string",
+      "description": "SEO a\u00e7\u0131klamas\u0131 (bo\u015fsa \u00f6zet kullan\u0131l\u0131r)"
+    },
+    "tags": {
+      "type": "string",
+      "description": "Virg\u00fclle ayr\u0131lm\u0131\u015f etiketler (\u00f6r. e-ticaret, seo, trakya)"
+    },
+    "color": {
+      "type": "string",
+      "default": "bg-mint",
+      "description": "Kart renk \u015feridi"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft"
+    }
+  },
+  "required": [
+    "title",
+    "slug"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

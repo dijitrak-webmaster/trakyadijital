@@ -1,0 +1,44 @@
+{
+  "name": "ClientPhone",
+  "type": "object",
+  "properties": {
+    "phone": {
+      "type": "string",
+      "description": "M\u00fc\u015fterinin WhatsApp numaras\u0131 (\u00fclke koduyla normalize, \u00f6r. 905321234567)"
+    },
+    "client_email": {
+      "type": "string",
+      "description": "E\u015fle\u015fen m\u00fc\u015fteri e-postas\u0131 (portal giri\u015fi)"
+    },
+    "note": {
+      "type": "string",
+      "description": "Y\u00f6netici notu"
+    }
+  },
+  "required": [
+    "phone",
+    "client_email"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

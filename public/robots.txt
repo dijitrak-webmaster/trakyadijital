@@ -1,0 +1,8 @@
+# Dijitrak — Trakya'nın Dijital Ajansı
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /portal
+Disallow: /musteri-portali
+
+Sitemap: https://trakya-digital-core.base44.app/functions/sitemap

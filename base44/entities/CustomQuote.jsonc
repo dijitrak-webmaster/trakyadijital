@@ -1,0 +1,94 @@
+{
+  "name": "CustomQuote",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Teklif ad\u0131 (\u00f6r. E-ticaret sitesi paketi)"
+    },
+    "client_name": {
+      "type": "string",
+      "description": "M\u00fc\u015fteri ad\u0131 soyad\u0131"
+    },
+    "client_email": {
+      "type": "string",
+      "description": "M\u00fc\u015fteri e-postas\u0131 (portal e\u015fle\u015fmesi ve sipari\u015f aktar\u0131m\u0131)"
+    },
+    "client_phone": {
+      "type": "string",
+      "description": "M\u00fc\u015fteri telefonu"
+    },
+    "items": {
+      "type": "string",
+      "description": "Teklif kalemleri (JSON dizisi \u2014 ad, a\u00e7\u0131klama, fiyat, faturaland\u0131rma tipi)"
+    },
+    "discount_amount": {
+      "type": "number",
+      "default": 0,
+      "description": "\u0130ndirim tutar\u0131 (TL)"
+    },
+    "total": {
+      "type": "number",
+      "description": "Genel toplam (TL) \u2014 kalemler eksi indirim"
+    },
+    "note": {
+      "type": "string",
+      "description": "M\u00fc\u015fteriye g\u00f6sterilecek not / kapsam a\u00e7\u0131klamas\u0131"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date",
+      "description": "Teklifin ge\u00e7erlilik biti\u015fi"
+    },
+    "token": {
+      "type": "string",
+      "description": "Payla\u015f\u0131m anahtar\u0131 \u2014 /teklif-onayi/:token adresine g\u00f6m\u00fcl\u00fcr"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "sent",
+        "accepted",
+        "rejected"
+      ],
+      "default": "draft",
+      "description": "Teklif durumu \u2014 kabul edilince otomatik sipari\u015fe d\u00f6n\u00fc\u015f\u00fcr"
+    }
+  },
+  "required": [
+    "title",
+    "client_email",
+    "items",
+    "total"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.client_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

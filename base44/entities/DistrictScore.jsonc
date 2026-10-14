@@ -1,0 +1,37 @@
+{
+  "name": "DistrictScore",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string",
+      "description": "\u0130l\u00e7e adresi (\u00f6r. edirne) \u2014 harita d\u00fc\u011f\u00fcm\u00fcyle e\u015fle\u015fir"
+    },
+    "score": {
+      "type": "number",
+      "default": 40,
+      "description": "Dijital olgunluk skoru (0-100)"
+    }
+  },
+  "required": [
+    "slug",
+    "score"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

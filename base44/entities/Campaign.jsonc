@@ -1,0 +1,68 @@
+{
+  "name": "Campaign",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Kampanya ad\u0131"
+    },
+    "description": {
+      "type": "string",
+      "description": "K\u0131sa a\u00e7\u0131klama"
+    },
+    "code": {
+      "type": "string",
+      "description": "Sepette ge\u00e7erli indirim kodu (\u00f6r. YAZ25)"
+    },
+    "discount_type": {
+      "type": "string",
+      "enum": [
+        "percent",
+        "fixed"
+      ],
+      "default": "percent",
+      "description": "\u0130ndirim tipi: y\u00fczde veya sabit TL"
+    },
+    "discount_value": {
+      "type": "number",
+      "description": "\u0130ndirim de\u011feri (% veya \u20ba)"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date",
+      "description": "Son ge\u00e7erlilik g\u00fcn\u00fc (opsiyonel)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft",
+      "description": "Yaln\u0131zca yay\u0131nda olanlar vitrinde g\u00f6r\u00fcn\u00fcr"
+    }
+  },
+  "required": [
+    "title",
+    "code",
+    "discount_value"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

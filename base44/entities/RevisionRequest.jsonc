@@ -1,0 +1,73 @@
+{
+  "name": "RevisionRequest",
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "description": "Ba\u011fl\u0131 m\u00fc\u015fteri projesinin kimli\u011fi"
+    },
+    "client_email": {
+      "type": "string",
+      "description": "Talebi yapan m\u00fc\u015fteri e-postas\u0131"
+    },
+    "text": {
+      "type": "string",
+      "description": "Revizyon talebi metni"
+    },
+    "response": {
+      "type": "string",
+      "description": "Ekibin m\u00fc\u015fteriye verdi\u011fi yan\u0131t \u2014 portaldan ve kapan\u0131\u015f e-postas\u0131nda g\u00f6r\u00fcn\u00fcr"
+    },
+    "via": {
+      "type": "string",
+      "enum": [
+        "portal",
+        "whatsapp",
+        "admin"
+      ],
+      "default": "portal",
+      "description": "Talebin geldi\u011fi kanal"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "resolved"
+      ],
+      "default": "open",
+      "description": "Talep durumu"
+    }
+  },
+  "required": [
+    "project_id",
+    "client_email",
+    "text"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.client_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "data.client_email": "{{user.email}}"
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

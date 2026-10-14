@@ -1,0 +1,84 @@
+{
+  "name": "Subscription",
+  "type": "object",
+  "properties": {
+    "client_email": {
+      "type": "string",
+      "description": "Aboneli\u011fin tan\u0131mland\u0131\u011f\u0131 m\u00fc\u015fteri e-postas\u0131 (portal giri\u015fi)"
+    },
+    "item_id": {
+      "type": "string",
+      "description": "Ba\u011fl\u0131 market \u00fcr\u00fcn\u00fc kimli\u011fi"
+    },
+    "item_title": {
+      "type": "string",
+      "description": "\u00dcr\u00fcn ad\u0131 (anl\u0131k kopya \u2014 \u00fcr\u00fcn silinse de kay\u0131t bozulmaz)"
+    },
+    "monthly_price": {
+      "type": "number",
+      "description": "Ayl\u0131k fiyat (TL)"
+    },
+    "months": {
+      "type": "number",
+      "default": 1,
+      "description": "S\u00fcre (ay)"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Ba\u015flang\u0131\u00e7 tarihi"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Biti\u015f / yenileme tarihi (ba\u015flang\u0131\u00e7 + s\u00fcre)"
+    },
+    "note": {
+      "type": "string",
+      "description": "Y\u00f6netici notu"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "cancelled"
+      ],
+      "default": "active",
+      "description": "Aktif veya iptal edilmi\u015f"
+    }
+  },
+  "required": [
+    "client_email",
+    "item_title",
+    "start_date"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.client_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

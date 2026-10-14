@@ -1,0 +1,109 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "customer_name": {
+      "type": "string",
+      "description": "Al\u0131c\u0131n\u0131n ad\u0131 soyad\u0131"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Al\u0131c\u0131n\u0131n telefon numaras\u0131"
+    },
+    "email": {
+      "type": "string",
+      "description": "Al\u0131c\u0131n\u0131n e-postas\u0131"
+    },
+    "items": {
+      "type": "string",
+      "description": "Sepetteki \u00fcr\u00fcnler (JSON dizisi \u2014 ba\u015fl\u0131k, fiyat, faturaland\u0131rma tipi)"
+    },
+    "subtotal": {
+      "type": "number",
+      "description": "\u0130ndirim \u00f6ncesi toplam (TL)"
+    },
+    "discount_code": {
+      "type": "string",
+      "description": "Uygulanan indirim kodu (varsa)"
+    },
+    "discount_amount": {
+      "type": "number",
+      "description": "\u0130ndirim tutar\u0131 (TL)"
+    },
+    "total": {
+      "type": "number",
+      "description": "\u00d6denecek toplam (TL)"
+    },
+    "lead_id": {
+      "type": "string",
+      "description": "Ba\u011fl\u0131 Lead kayd\u0131n\u0131n kimli\u011fi"
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "unpaid",
+        "paid"
+      ],
+      "default": "unpaid",
+      "description": "\u00d6deme durumu \u2014 iyzico \u00f6demesi veya y\u00f6neticinin link \u00f6demesi onay\u0131yla paid olur"
+    },
+    "paid_date": {
+      "type": "string",
+      "description": "\u00d6demenin al\u0131nd\u0131\u011f\u0131 zaman (ISO)"
+    },
+    "iyzico_token": {
+      "type": "string",
+      "description": "iyzico Checkout Form token \u2014 \u00f6deme sonucunu sipari\u015fle e\u015fle\u015ftirir"
+    },
+    "payment_link": {
+      "type": "string",
+      "description": "\u0130yzico \u00f6deme linki \u2014 y\u00f6netici panelden yap\u0131\u015ft\u0131r\u0131r, WhatsApp/e-posta ile m\u00fc\u015fteriye g\u00f6nderilir"
+    },
+    "note": {
+      "type": "string",
+      "description": "Y\u00f6netici notu"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "approved",
+        "in_progress",
+        "delivered",
+        "cancelled"
+      ],
+      "default": "new",
+      "description": "Sipari\u015f durumu"
+    }
+  },
+  "required": [
+    "customer_name",
+    "items",
+    "total"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
